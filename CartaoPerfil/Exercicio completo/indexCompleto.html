@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 1 — Cartão de Perfil</title>
+  <link rel="stylesheet" href="styleCompleto.css">
+</head>
+
+<body>
+
+  <!-- <a href="../index.html" class="voltar">&#8592; Voltar ao menu</a> -->
+
+  <header class="cabecalho">
+    <h1>Exercício 1 — Cartão de Perfil</h1>
+    <p>Personalize o cartão de perfil e pratique HTML, CSS e JavaScript!</p>
+  </header>
+  <main>
+
+    <div class="container">
+
+      <!-- ===== CARTÃO DE PERFIL ===== -->
+      <div class="card" id="cartao">
+        <div class="avatar" id="avatar">US</div>
+        <h2 id="nomeExibido">User Name</h2>
+        <p class="cargo" id="cargoExibido">Estudante de Programação Web</p>
+        <p class="bio">Aprendendo HTML, CSS e JavaScript para criar páginas incríveis! 🚀</p>
+        <div class="habilidades" id="habilidades">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <button id="btnTema" onclick="alternarTema()">🌙 Ativar Modo Escuro</button>
+      </div>
+
+      <!-- ===== PAINEL DE PERSONALIZAÇÃO ===== -->
+      <div class="painel">
+        <h3>✏️ Personalize seu cartão</h3>
+
+        <div class="campo">
+          <label for="inputNome">Seu nome:</label>
+          <input type="text" id="inputNome" placeholder="Digite seu nome" oninput="atualizarNome()">
+        </div>
+
+        <div class="campo">
+          <label for="inputIniciais">Iniciais no avatar (máx. 2):</label>
+          <input type="text" id="inputIniciais" maxlength="2" placeholder="RC" oninput="atualizarIniciais()">
+        </div>
+
+        <div class="campo">
+          <label for="inputCor">Cor do avatar:</label>
+          <input type="color" id="inputCor" value="#e44d26" oninput="atualizarCor()">
+        </div>
+        
+        <!--
+        <div class="campo">
+          <label for="inputBio">Texto da Bio:</label>
+          <input type="text" id="inputBio" maxlength="200" placeholder="Insira um texto para a Bio">
+        </div>
+        -->
+
+        <div class="campo">
+          <label for="inputCargo">Cargo / função:</label>
+          <input type="text" id="inputCargo" placeholder="Ex: Estudante de TI" oninput="atualizarCargo()">
+        </div>
+
+        <div class="campo">
+          <label for="inputHabilidade">Adicionar habilidade:</label>
+          <div class="linha">
+            <input type="text" id="inputHabilidade" placeholder="Ex: Python" onkeydown="teclaEnter(event)">
+            <button class="btn-add" onclick="adicionarHabilidade()">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- ===== DESAFIOS ===== -->
+    <section class="dicas">
+      <h3>💡 Desafios</h3>
+      <ul>
+        <li>✅ Atualize seu nome e as iniciais do avatar.</li>
+        <li>✅ Troque a cor do avatar usando o seletor de cor.</li>
+        <li>✅ Clique no botão para alternar entre Modo Claro e Modo Escuro.</li>
+        <li>✅ Adicione uma nova habilidade à lista de tags.</li>
+        <li>⭐ Desafio extra: adicione um campo para alterar o texto da bio!</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="scriptCompleto.js"></script>
+</body>
+
+</html>

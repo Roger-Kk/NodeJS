@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 1 — Cartão de Perfil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="cabecalho">
+    <h1>Exercício 1 — Cartão de Perfil</h1>
+    <p>Personalize o cartão de perfil e pratique HTML, CSS e JavaScript!</p>
+  </header>
+  <main>
+
+    <div class="container">
+
+      <!-- ===== CARTÃO DE PERFIL ===== -->
+      <div class="card" id="cartao">
+        <div class="avatar" id="avatar">US</div>
+        <h2 id="nomeExibido">User Name</h2>
+        <p class="cargo" id="cargoExibido">Estudante de Programação Web</p>
+        <p class="bio">Aprendendo HTML, CSS e JavaScript para criar páginas incríveis! 🚀</p>
+        <div class="habilidades" id="habilidades">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <button id="btnTema" onclick="alterarTema()">🌙 Ativar Modo Escuro</button>
+      </div>
+
+      <!-- ===== PAINEL DE PERSONALIZAÇÃO ===== -->
+      <div class="painel">
+        <h3>✏️ Personalize seu cartão</h3>
+
+        <div class="campo">
+          <label for="inputNome">Seu nome:</label>
+          <input type="text" id="inputNome" placeholder="Digite seu nome" oninput="atualizarNome()">
+        </div>
+
+        <div class="campo">
+          <label for="inputIniciais">Iniciais no avatar (máx. 2):</label>
+          <input type="text" id="inputIniciais" maxlength="2" placeholder="RC" oninput="atualizarIniciais()">
+        </div>
+
+        <div class="campo">
+          <label for="inputCor">Cor do avatar:</label>
+          <input type="color" id="inputCor" value="#e44d26" oninput="atualizarCor()">
+        </div>
+
+        <div class="campo">
+          <label for="inputCargo">Cargo / função:</label>
+          <input type="text" id="inputCargo" placeholder="Ex: Estudante de TI" oninput="atualizarCargo()">
+        </div>
+
+        <div class="campo">
+          <label for="inputHabilidade">Adicionar habilidade:</label>
+          <div class="linha">
+            <input type="text" id="inputHabilidade" placeholder="Ex: Python" onkeydown="teclaEnter(event)">
+            <button class="btn-add" onclick="adicionarHabilidade()">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- /.container -->
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
