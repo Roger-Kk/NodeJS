@@ -79,7 +79,7 @@ function teclaEnter(evento) {
     adicionarHabilidade();
   }
 }
-/*
+
 function atualizarBio() {
 
   const input = document.getElementById("inputBio");
@@ -101,5 +101,3 @@ input.addEventListener("keydown", function (evento) {
   }
 
 });
-
-*/
