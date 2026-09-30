@@ -9,7 +9,7 @@ export const tarefaService = {
   listar() {
     //listar os todos dados
     const tarefas = tarefaRepository.listar();
-    const quantidade = tarefas.length();
+    const quantidade = tarefas.length;
 
     return { quantidade, itens: tarefas };
   },
