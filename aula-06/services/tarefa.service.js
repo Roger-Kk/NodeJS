@@ -1,7 +1,7 @@
 
 //tarefa.service.js
 
-import { tarefaRepository } from "../repositories/tarefa.repository";
+import { tarefaRepository } from "../repositories/tarefa.repository.js";
 
 export const tarefaService = {
 
