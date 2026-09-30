@@ -20,7 +20,7 @@ console.log(argumentos);
 //npm run dev
 //Acrescentar no package.json:
 //"scripts": {
-//  "dev": "node aula-01/index.js"
+//  "dev": "node --watch aula-01/index.js"
 //}
 
 //export/import: 
