@@ -21,6 +21,7 @@
 // Importando o módulo express, OBS: instalado com o comando: npm install express no terminal
 import express from "express";
 import tarefaRouter from "./routes/tarefa.routes.js";
+import { tratadorDeErros } from "./middlewares/tratadorDeErros.js";
 
 // Criando uma instância do express
 const app = express();
@@ -28,6 +29,8 @@ const app = express();
 // Configurando o express para aceitar requisições com corpo em formato JSON
 app.use(express.json());
 app.use("/tarefas", tarefaRouter);
+app.use(tratadorDeErros);
+
 
 // Iniciando o servidor na porta 3000 em localhost
 app.listen(3000, () => {

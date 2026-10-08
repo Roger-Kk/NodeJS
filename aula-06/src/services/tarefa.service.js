@@ -1,6 +1,7 @@
 
 //tarefa.service.js
 
+import { ErroDeNaoEncontrado, ErroDeValidacao } from "../erros/index.js";
 import { tarefaRepository } from "../repositories/tarefa.repository.js";
 
 export const tarefaService = {
@@ -20,7 +21,7 @@ export const tarefaService = {
     const resultado = tarefaRepository.buscarPorId(id);
 
     if (!resultado.length) {
-      throw new erro("Tarefa não encontrada");
+      throw new ErroDeNaoEncontrado("Tarefa não encontrada"); // lança um erro de não encontrado se a tarefa não existir
     }
 
     return resultado;
@@ -30,7 +31,7 @@ export const tarefaService = {
   criar(dados) {
     //Criar uma nova Tarefa
     if (!dados.titulo) {
-      throw new error("O titulo é obrigatório");
+      throw new ErroDeValidacao("O titulo é obrigatório");
     }
 
     return tarefaRepository.criar(dados);
@@ -42,7 +43,7 @@ export const tarefaService = {
     const tarefa = tarefaRepository.buscarPorId(id);
 
     if (!tarefa) {
-      throw new error("Tarefa não encontrada");
+      throw new ErroDeNaoEncontrado("Tarefa não encontrada");
     }
 
     return tarefaRepository.atualizar(id, mudanca);
@@ -54,7 +55,7 @@ export const tarefaService = {
     const tarefa = tarefaRepository.buscarPorId(id);
 
     if (!tarefa) {
-      throw new error("Tarefa não encontrada");
+      throw new ErroDeNaoEncontrado("Tarefa não encontrada");
     }
 
     return tarefaRepository.remover(id);
