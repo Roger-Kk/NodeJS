@@ -34,6 +34,10 @@ export const tarefaService = {
       throw new ErroDeValidacao("O titulo é obrigatório");
     }
 
+       if (!dados.dataCriacao) {
+      throw new ErroDeValidacao("A tarefa não possui data de criação ou atualização");
+    }
+
     return tarefaRepository.criar(dados);
   },
 

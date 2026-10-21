@@ -26,6 +26,21 @@ import { tratadorDeErros } from "./middlewares/tratadorDeErros.js";
 // Criando uma instância do express
 const app = express();
 
+
+//Configurar o servidor para aceitar requisições com corpo em formato JSON somente do localhost
+app.use((req, res, next) => {
+  const origem = req.headers.origin;
+  if (origem === "http://localhost:3000") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    }
+    if(req.method === "OPTIONS") {
+      return res.sendStatus(200);
+      next(); 
+    }
+});
+
 // Configurando o express para aceitar requisições com corpo em formato JSON
 app.use(express.json());
 app.use("/tarefas", tarefaRouter);
