@@ -1,6 +1,6 @@
 
 // aula-06/routes/tarefa.routes.js
-import { Router } from "express";
+import Router from "express";
 import { tarefaController } from "../controllers/tarefa.controller.js";
 
 const router = Router();

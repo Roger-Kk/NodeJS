@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minhas tarefas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="./"><span class="brand-icon" aria-hidden="true">✓</span> Minhas tarefas</a>
+      <div class="sidebar-section">MEU ESPAÇO</div>
+      <nav aria-label="Filtrar tarefas">
+        <button class="nav-button active" data-filter="todas" aria-pressed="true"><span aria-hidden="true">▦</span> Todas as tarefas <span id="nav-total" class="badge">0</span></button>
+        <button class="nav-button" data-filter="pendentes" aria-pressed="false"><span aria-hidden="true">◷</span> Pendentes <span id="nav-pending" class="badge">0</span></button>
+        <button class="nav-button" data-filter="concluidas" aria-pressed="false"><span aria-hidden="true">✓</span> Concluídas <span id="nav-done" class="badge">0</span></button>
+      </nav>
+      <div class="sidebar-note"><span aria-hidden="true">✦</span><strong>Um passo de cada vez.</strong><p>Organize o que precisa fazer e acompanhe seu progresso.</p></div>
+      <div class="profile"><span class="avatar" aria-hidden="true">M</span><div><strong>Meu espaço</strong><small>Organização pessoal</small></div></div>
+    </aside>
+
+    <main>
+      <header class="topbar"><span>Meu espaço <span class="breadcrumb">/ Tarefas</span></span><span id="today"></span></header>
+      <div class="content">
+        <section class="intro"><div><span class="eyebrow">MENOS PENDÊNCIAS, MAIS CLAREZA</span><h1>Seu dia, organizado<span>.</span></h1><p>Guarde suas ideias, defina o próximo passo e faça acontecer.</p></div><button id="new-task" class="primary"><span aria-hidden="true">＋</span> Nova tarefa</button></section>
+
+        <section class="summary" aria-label="Resumo das tarefas">
+          <article class="summary-card"><div><span>Total de tarefas</span><strong id="total">—</strong><small>Tudo em um só lugar</small></div><span class="metric-icon purple" aria-hidden="true">▦</span></article>
+          <article class="summary-card"><div><span>Em andamento</span><strong id="pending">—</strong><small>Um próximo passo à espera</small></div><span class="metric-icon amber" aria-hidden="true">◷</span></article>
+          <article class="summary-card"><div><span>Concluídas</span><strong id="done">—</strong><small>Cada conquista conta</small></div><span class="metric-icon green" aria-hidden="true">✓</span></article>
+        </section>
+
+        <section class="progress-card" aria-label="Progresso"><div><strong>Seu progresso</strong><p id="progress-description">Carregando suas tarefas…</p></div><div class="progress-track"><div class="progress-label"><span>Conclusão</span><strong id="percent">—</strong></div><progress id="progress" value="0" max="100">0%</progress></div></section>
+
+        <section class="tasks-panel">
+          <div class="panel-header"><h2 id="list-title">Todas as tarefas <span id="visible-count">0</span></h2><button id="refresh" class="text-button" type="button">↻ Atualizar</button></div>
+          <div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar uma tarefa…" aria-label="Buscar tarefa pelo título"></label><span class="toolbar-tip">Marque para concluir</span></div>
+          <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+          <div id="loading" class="empty">Carregando suas tarefas…</div>
+          <div id="empty" class="empty" hidden><span class="empty-icon" aria-hidden="true">✓</span><h3 id="empty-title">Tudo começa com uma tarefa.</h3><p id="empty-description">Adicione o que você quer fazer e dê o primeiro passo.</p><button id="empty-add" class="primary" type="button">Criar minha primeira tarefa</button></div>
+          <ul id="task-list" aria-label="Lista de tarefas"></ul>
+          <div class="panel-footer"><span id="list-description">Sua lista é salva automaticamente.</span><span>Pequenos passos. Grandes avanços.</span></div>
+        </section>
+        <footer>As tarefas ficam disponíveis enquanto o servidor estiver ligado. Reiniciar o servidor limpa a lista.</footer>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="task-dialog" aria-labelledby="dialog-title">
+    <form id="task-form">
+      <div class="dialog-heading"><div><span class="eyebrow">ORGANIZE SEU PRÓXIMO PASSO</span><h2 id="dialog-title">Nova tarefa</h2></div><button id="close-dialog" class="icon-button" aria-label="Fechar formulário" type="button">×</button></div>
+      <label for="task-title">O que você precisa fazer?</label><input id="task-title" placeholder="Ex.: preparar a apresentação" required maxlength="200">
+      <label class="check-label"><input id="task-done" type="checkbox"> Esta tarefa já está concluída</label>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button id="cancel-dialog" class="secondary" type="button">Cancelar</button><button id="save-task" class="primary" type="submit">Criar tarefa</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="delete-dialog" aria-labelledby="delete-title"><h2 id="delete-title">Excluir tarefa?</h2><p id="delete-description"></p><p class="delete-note">Essa ação não pode ser desfeita.</p><p id="delete-error" class="form-error" role="alert" hidden></p><div class="dialog-actions"><button id="cancel-delete" class="secondary" type="button">Cancelar</button><button id="confirm-delete" class="danger" type="button">Excluir tarefa</button></div></dialog>
+</body>
+</html>
